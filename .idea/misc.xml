@@ -3,7 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.148" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/drawable/ic_launcher_background.xml" value="0.148" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/drawable/main_icon.xml" value="0.1" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/drawable/rectangle_icon.xml" value="0.2645" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/drawable/rounded_icon.xml" value="0.147" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/drawable/rounded_rectangle.xml" value="0.2645" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_hospitals.xml" value="0.196875" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_medication.xml" value="0.196875" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_non_venomous_snakes.xml" value="0.27291666666666664" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_snake_catchers.xml" value="0.27291666666666664" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_snake_details.xml" value="0.27291666666666664" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_venomuous_snakes.xml" value="0.33" />
       </map>
     </option>
   </component>
