@@ -4,10 +4,16 @@ import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 public class SnakeDetails extends AppCompatActivity {
 
@@ -101,7 +107,12 @@ public class SnakeDetails extends AppCompatActivity {
 
     String HM_Pitviper_viper_topic = " hump nosed pit viper";
     String HM_Pitviper_scientific_name = "Hypnale hypnale";
-
+/*
+    public  void  openSeeMore(){
+        Intent intent = new Intent(SnakeDetails.this, MainActivity.class);
+        startActivity(intent);
+    }
+*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,61 +125,134 @@ public class SnakeDetails extends AppCompatActivity {
         TextView snakeNameTopic = findViewById(R.id.snake_name_topic);
         TextView snakeNameScientificName = findViewById(R.id.snake_scientific_name);
         TextView snakeDescription = findViewById(R.id.textViewDescription);
+        ImageView seeMore = findViewById(R.id.see_more);
 
         Intent intent = getIntent();
         snake_name  = intent.getStringExtra("snakeName");
+        String responseJson = intent.getStringExtra("response");
+
+
+        byte[] byteArray = intent.getByteArrayExtra("imageByteArray");
+
+        // Convert the byte array back to a Bitmap image
 
         try {
-
-            if (snake_name.equals("Russell's Viper")) {
-                snakeDescription.setText(Russell_viper);
-                snakeName.setText(" Thith Polanga");
-                snakeImage.setImageResource(R.drawable.thith_polaga);
-                snakeNameTopic.setText(Russell_viper_topic);
-                snakeNameScientificName.setText(Russell_viper_scientific_name);
-
-            }else if (snake_name.equals("Nagaya")){
-                snakeDescription.setText(SL_Cobra);
-                snakeName.setText("Nagaya");
-                snakeImage.setImageResource(R.drawable.cobra);
-                snakeNameTopic.setText(SL_Cobra_topic);
-                snakeNameScientificName.setText(SL_Cobra_scientific_name);
-
-            }else if (snake_name.equals("veliPolanga")){
-                snakeDescription.setText(Saw_scaled_viper);
-                snakeName.setText(" veli Polanga");
-                snakeImage.setImageResource(R.drawable.vele_polaga);
-                snakeNameTopic.setText(Saw_scaled_viper_topic);
-                snakeNameScientificName.setText(Saw_scaled_viper_scientific_name);
-
-            }else if (snake_name.equals("thelKarawalaya")){
-                snakeDescription.setText(Common_Krait);
-                snakeName.setText("Thel Karawalaya");
-                snakeImage.setImageResource(R.drawable.karavalaya_2);
-                snakeNameTopic.setText(Common_Krait_viper_topic);
-                snakeNameScientificName.setText(Common_Krait_scientific_name);
-
-            }else if (snake_name.equals("dhunuKarawalaya")){
-                snakeDescription.setText(SL_Krait);
-                snakeName.setText("DhunuKarawalaya");
-                snakeImage.setImageResource(R.drawable.karavalaya);
-                snakeNameTopic.setText(SL_Krait_viper_topic);
-                snakeNameScientificName.setText(SL_Krait_scientific_name);
-
-            }else if (snake_name.equals("humpNoseViper")){
-                snakeDescription.setText(HM_Pitviper);
-                snakeName.setText("Hump Noseed Viper");
-                snakeImage.setImageResource(R.drawable.hm_viper);
-                snakeNameTopic.setText(HM_Pitviper_viper_topic);
-                snakeNameScientificName.setText(HM_Pitviper_scientific_name);
-
-            }else if (snake_name.equals("non venomous")){
-                snakeDescription.setText("Non Venomous Snake");
-            }
+            Bitmap imageBitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+            snakeImage.setImageBitmap(imageBitmap);
 
         }catch (Exception e){
             e.printStackTrace();
         }
 
+
+        try {
+                if (snake_name.equals("Russell's Viper")) {
+                    snakeDescription.setText(Russell_viper);
+                    snakeName.setText(" Thith Polanga");
+                    snakeImage.setImageResource(R.drawable.thith_polaga);
+                    snakeNameTopic.setText(Russell_viper_topic);
+                    snakeNameScientificName.setText(Russell_viper_scientific_name);
+
+                }else if (snake_name.equals("Nagaya")){
+                    snakeDescription.setText(SL_Cobra);
+                    snakeName.setText("Nagaya");
+                    snakeImage.setImageResource(R.drawable.cobra);
+                    snakeNameTopic.setText(SL_Cobra_topic);
+                    snakeNameScientificName.setText(SL_Cobra_scientific_name);
+
+                }else if (snake_name.equals("veliPolanga")){
+                    snakeDescription.setText(Saw_scaled_viper);
+                    snakeName.setText(" veli Polanga");
+                    snakeImage.setImageResource(R.drawable.vele_polaga);
+                    snakeNameTopic.setText(Saw_scaled_viper_topic);
+                    snakeNameScientificName.setText(Saw_scaled_viper_scientific_name);
+
+                }else if (snake_name.equals("thelKarawalaya")){
+                    snakeDescription.setText(Common_Krait);
+                    snakeName.setText("Thel Karawalaya");
+                    snakeImage.setImageResource(R.drawable.karavalaya_2);
+                    snakeNameTopic.setText(Common_Krait_viper_topic);
+                    snakeNameScientificName.setText(Common_Krait_scientific_name);
+
+                }else if (snake_name.equals("dhunuKarawalaya")){
+                    snakeDescription.setText(SL_Krait);
+                    snakeName.setText("DhunuKarawalaya");
+                    snakeImage.setImageResource(R.drawable.karavalaya);
+                    snakeNameTopic.setText(SL_Krait_viper_topic);
+                    snakeNameScientificName.setText(SL_Krait_scientific_name);
+
+                }else if (snake_name.equals("humpNoseViper")){
+                    snakeDescription.setText(HM_Pitviper);
+                    snakeName.setText("Hump Noseed Viper");
+                    snakeImage.setImageResource(R.drawable.hm_viper);
+                    snakeNameTopic.setText(HM_Pitviper_viper_topic);
+                    snakeNameScientificName.setText(HM_Pitviper_scientific_name);
+
+                }else if (snake_name.equals("non venomous")){
+                    snakeDescription.setText("Non Venomous Snake");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+        try {
+
+            JsonObject responseObj = JsonParser.parseString(responseJson).getAsJsonObject();
+
+            String name = responseObj.get("class_label").getAsString();
+
+            if (name.equals("Russell's Viper")) {
+                snakeDescription.setText(Russell_viper);
+                snakeName.setText(" Thith Polanga");
+                //snakeImage.setImageResource(R.drawable.thith_polaga);
+                snakeNameTopic.setText(Russell_viper_topic);
+                snakeNameScientificName.setText(Russell_viper_scientific_name);
+
+            }else if (name.equals("Cobra")){
+                snakeDescription.setText(SL_Cobra);
+                snakeName.setText("Nagaya");
+                //snakeImage.setImageResource(R.drawable.cobra);
+                snakeNameTopic.setText(SL_Cobra_topic);
+                snakeNameScientificName.setText(SL_Cobra_scientific_name);
+
+            }else if (name.equals("saw- scaled viper")){
+                snakeDescription.setText(Saw_scaled_viper);
+                snakeName.setText(" veli Polanga");
+                //snakeImage.setImageResource(R.drawable.vele_polaga);
+                snakeNameTopic.setText(Saw_scaled_viper_topic);
+                snakeNameScientificName.setText(Saw_scaled_viper_scientific_name);
+
+            }else if (name.equals("Common Krait")){
+                snakeDescription.setText(Common_Krait);
+                snakeName.setText("Thel Karawalaya");
+                //snakeImage.setImageResource(R.drawable.karavalaya_2);
+                snakeNameTopic.setText(Common_Krait_viper_topic);
+                snakeNameScientificName.setText(Common_Krait_scientific_name);
+
+            }else if (name.equals("krait Bungarus ceylonicus")){
+                snakeDescription.setText(SL_Krait);
+                snakeName.setText("DhunuKarawalaya");
+                //snakeImage.setImageResource(R.drawable.karavalaya);
+                snakeNameTopic.setText(SL_Krait_viper_topic);
+                snakeNameScientificName.setText(SL_Krait_scientific_name);
+
+            }else if (name.equals("hump - nosed pit viper")){
+                snakeDescription.setText(HM_Pitviper);
+                snakeName.setText("Hump Nosed Viper");
+                //snakeImage.setImageResource(R.drawable.hm_viper);
+                snakeNameTopic.setText(HM_Pitviper_viper_topic);
+                snakeNameScientificName.setText(HM_Pitviper_scientific_name);
+
+            }else{
+                snakeDescription.setText("Non Venomous Snake");
+                snakeName.setText("Non Venomous Snake");
+            }
+            // Update TextViews here with the parsed data
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
+
 }

@@ -9,13 +9,16 @@
         <entry key="..\:/SnakeIdentifier/app/src/main/res/drawable/rectangle_icon.xml" value="0.2645" />
         <entry key="..\:/SnakeIdentifier/app/src/main/res/drawable/rounded_icon.xml" value="0.147" />
         <entry key="..\:/SnakeIdentifier/app/src/main/res/drawable/rounded_rectangle.xml" value="0.2645" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/drawable/rounded_rectangle_gray.xml" value="0.1455" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/drawable/transparent_button.xml" value="0.127" />
         <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_hospitals.xml" value="0.196875" />
-        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_medication.xml" value="0.196875" />
-        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_non_venomous_snakes.xml" value="0.27291666666666664" />
-        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_snake_catchers.xml" value="0.27291666666666664" />
-        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_snake_details.xml" value="0.27291666666666664" />
-        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_venomuous_snakes.xml" value="0.33" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_main.xml" value="0.38881491344873503" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_medication.xml" value="0.25" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_non_venomous_snakes.xml" value="0.67" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_open_camera.xml" value="0.28822882288228824" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_snake_catchers.xml" value="0.22" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_snake_details.xml" value="0.22" />
+        <entry key="..\:/SnakeIdentifier/app/src/main/res/layout/activity_venomuous_snakes.xml" value="0.75" />
       </map>
     </option>
   </component>
